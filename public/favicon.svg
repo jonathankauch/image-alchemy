@@ -1,9 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0c0b09"/>
-  <g fill="none" stroke="#e5bd5c" stroke-width="3" stroke-linecap="round">
-    <circle cx="32" cy="32" r="6" fill="#e5bd5c" stroke="none"/>
-    <ellipse cx="32" cy="32" rx="20" ry="8"/>
-    <ellipse cx="32" cy="32" rx="20" ry="8" transform="rotate(60 32 32)"/>
-    <ellipse cx="32" cy="32" rx="20" ry="8" transform="rotate(120 32 32)"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a9bff"/>
+      <stop offset="1" stop-color="#0071e3"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#g)"/>
+  <g fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 26h9l-3.5-4"/>
+    <path d="M44 38h-9l3.5 4"/>
+    <path d="M20 26c0-5 4-9 9-9"/>
+    <path d="M44 38c0 5-4 9-9 9"/>
   </g>
 </svg>

@@ -14,31 +14,26 @@ export function FileList({ items, onRemove, onDownload }: FileListProps) {
       {items.map((item, i) => (
         <li
           key={item.id}
-          className="rise flex items-center gap-3.5 rounded-xl border border-ink-700 bg-ink-900/50 p-2.5 pr-3"
+          className="rise flex items-center gap-3.5 rounded-2xl border border-line-soft bg-canvas p-2.5 pr-3 shadow-card"
           style={{ animationDelay: `${Math.min(i, 8) * 40}ms` }}
         >
           {/* Thumbnail */}
-          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border border-ink-600 bg-ink-800">
-            <img
-              src={item.previewUrl}
-              alt=""
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
-            <span className="absolute bottom-0 left-0 right-0 bg-ink-950/80 py-0.5 text-center font-mono text-[0.55rem] uppercase tracking-wide text-cream-300">
+          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-line-soft bg-panel">
+            <img src={item.previewUrl} alt="" className="h-full w-full object-cover" loading="lazy" />
+            <span className="absolute inset-x-0 bottom-0 bg-black/55 py-0.5 text-center font-mono text-[0.55rem] font-medium uppercase tracking-wide text-white">
               {item.sourceLabel}
             </span>
           </div>
 
           {/* Meta */}
           <div className="min-w-0 flex-1">
-            <p className="truncate text-sm text-cream-50">{item.file.name}</p>
-            <div className="mt-0.5 flex items-center gap-2 font-mono text-xs text-cream-500">
+            <p className="truncate text-sm font-medium text-ink">{item.file.name}</p>
+            <div className="mt-0.5 flex items-center gap-2 font-mono text-xs text-muted">
               <span>{formatBytes(item.originalSize)}</span>
               {item.result && (
                 <>
-                  <span className="text-gold-500/60">→</span>
-                  <span className="text-cream-300">{formatBytes(item.result.size)}</span>
+                  <span className="text-faint">→</span>
+                  <span className="text-ink">{formatBytes(item.result.size)}</span>
                   <Delta original={item.originalSize} converted={item.result.size} />
                 </>
               )}
@@ -53,18 +48,18 @@ export function FileList({ items, onRemove, onDownload }: FileListProps) {
                 type="button"
                 onClick={() => onDownload(item)}
                 title="Download"
-                className="flex h-8 w-8 items-center justify-center rounded-lg border border-gold-500/40 text-gold-300 transition-colors hover:border-gold-400 hover:bg-gold-500/10"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-blue transition-colors hover:bg-blue-soft"
               >
-                <Download className="h-4 w-4" strokeWidth={1.75} />
+                <Download className="h-4 w-4" strokeWidth={2} />
               </button>
             )}
             <button
               type="button"
               onClick={() => onRemove(item.id)}
               title="Remove"
-              className="flex h-8 w-8 items-center justify-center rounded-lg text-cream-500 transition-colors hover:bg-ink-700 hover:text-cream-50"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-faint transition-colors hover:bg-panel hover:text-ink"
             >
-              <X className="h-4 w-4" strokeWidth={1.75} />
+              <X className="h-4 w-4" strokeWidth={2} />
             </button>
           </div>
         </li>
@@ -75,32 +70,27 @@ export function FileList({ items, onRemove, onDownload }: FileListProps) {
 
 function Delta({ original, converted }: { original: number; converted: number }) {
   const { label, smaller } = sizeDelta(original, converted)
-  return (
-    <span className={smaller ? 'text-patina-400' : 'text-gold-400'}>{label}</span>
-  )
+  return <span className={smaller ? 'text-green' : 'text-muted'}>{label}</span>
 }
 
 function StatusBadge({ item }: { item: QueueItem }) {
   switch (item.status) {
     case 'converting':
       return (
-        <span className="flex items-center gap-1.5 font-mono text-xs text-gold-300">
-          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+        <span className="flex h-8 w-8 items-center justify-center text-blue">
+          <Loader2 className="h-4 w-4 animate-spin" />
         </span>
       )
     case 'done':
       return (
-        <span className="flex h-8 w-8 items-center justify-center rounded-lg text-patina-400">
-          <Check className="h-4 w-4" strokeWidth={2} />
+        <span className="flex h-8 w-8 items-center justify-center text-green">
+          <Check className="h-4 w-4" strokeWidth={2.5} />
         </span>
       )
     case 'error':
       return (
-        <span
-          title={item.error}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-red-400"
-        >
-          <AlertTriangle className="h-4 w-4" strokeWidth={1.75} />
+        <span title={item.error} className="flex h-8 w-8 items-center justify-center text-red">
+          <AlertTriangle className="h-4 w-4" strokeWidth={2} />
         </span>
       )
     default:

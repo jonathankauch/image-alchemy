@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
-import { UploadCloud } from 'lucide-react'
+import { ImagePlus } from 'lucide-react'
 
 interface DropzoneProps {
   onFiles: (files: File[]) => void
@@ -35,11 +35,11 @@ export function Dropzone({ onFiles, compact = false }: DropzoneProps) {
         if (e.key === 'Enter' || e.key === ' ') inputRef.current?.click()
       }}
       className={[
-        'group relative cursor-pointer overflow-hidden rounded-2xl border text-center transition-all duration-300',
-        compact ? 'px-6 py-6' : 'px-8 py-16',
+        'group relative cursor-pointer overflow-hidden rounded-3xl border-2 border-dashed text-center transition-all duration-300',
+        compact ? 'px-6 py-7' : 'px-8 py-16',
         dragging
-          ? 'border-gold-400 bg-gold-500/10 shadow-[0_0_50px_-12px_rgba(229,189,92,0.5)]'
-          : 'border-ink-600 bg-ink-900/40 hover:border-gold-500/60 hover:bg-ink-800/40',
+          ? 'border-blue bg-blue-soft'
+          : 'border-line bg-panel-2 hover:border-blue/50 hover:bg-panel',
       ].join(' ')}
     >
       <input
@@ -57,20 +57,20 @@ export function Dropzone({ onFiles, compact = false }: DropzoneProps) {
       <div className="pointer-events-none flex flex-col items-center gap-3">
         <div
           className={[
-            'flex items-center justify-center rounded-full border transition-colors',
-            compact ? 'h-10 w-10' : 'h-16 w-16',
-            dragging ? 'border-gold-400 text-gold-300' : 'border-gold-500/40 text-gold-400/80',
+            'flex items-center justify-center rounded-2xl transition-colors',
+            compact ? 'h-10 w-10' : 'h-14 w-14',
+            dragging ? 'bg-blue text-white' : 'bg-canvas text-blue shadow-card',
           ].join(' ')}
         >
-          <UploadCloud className={compact ? 'h-5 w-5' : 'h-7 w-7'} strokeWidth={1.5} />
+          <ImagePlus className={compact ? 'h-5 w-5' : 'h-7 w-7'} strokeWidth={2} />
         </div>
         {!compact && (
-          <p className="font-display text-2xl text-cream-50">
-            Drop your images into the crucible
+          <p className="text-xl font-semibold tracking-[-0.01em] text-ink">
+            Drop images here
           </p>
         )}
-        <p className="font-mono text-xs tracking-wide text-cream-500">
-          {compact ? 'Add more images' : 'drag & drop, or click to browse'}
+        <p className="text-sm text-muted">
+          {compact ? 'Add more images' : 'or click to browse — convert as many as you like'}
         </p>
       </div>
     </div>
