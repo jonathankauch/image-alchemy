@@ -164,11 +164,11 @@ export default function App() {
       <div className="mx-auto flex max-w-5xl flex-col px-5 py-14 sm:px-8 sm:py-20">
         {/* Hero */}
         <header className="rise grid grid-cols-2 items-center gap-x-10 gap-y-8">
-          {/* Left: logo + wordmark, title, privacy pill */}
+          {/* Left: logo + wordmark, title */}
           <div className="flex flex-col items-start gap-5 text-left">
-            <div className="flex items-center gap-3.5">
-              <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[22px] bg-gradient-to-b from-[#3a9bff] to-blue text-white shadow-icon">
-                <ArrowRightLeft className="h-8 w-8" strokeWidth={2.25} />
+            <div className="flex items-center gap-3">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-[#3a9bff] to-blue text-white shadow-icon">
+                <ArrowRightLeft className="h-6 w-6" strokeWidth={2.25} />
               </div>
               <p className="font-mono text-sm font-medium uppercase tracking-[0.22em] text-faint">
                 Image
@@ -181,17 +181,19 @@ export default function App() {
               <br />
               <span className="text-blue">Any format.</span>
             </h1>
+          </div>
+
+          {/* Right: description + privacy pill */}
+          <div className="flex flex-col items-start gap-6 self-start">
+            <p className="max-w-lg text-left text-xl leading-relaxed text-muted">
+              A fast, private image converter that runs entirely in your browser. WebP, AVIF,
+              PNG, JPEG, HEIC, TIFF and more — nothing is ever uploaded.
+            </p>
             <div className="inline-flex items-center gap-1.5 rounded-full bg-panel px-3.5 py-1.5 text-[0.8rem] font-medium text-muted">
               <Lock className="h-3.5 w-3.5 text-green" strokeWidth={2.25} />
               100% on-device · nothing leaves your Mac
             </div>
           </div>
-
-          {/* Right: description */}
-          <p className="max-w-lg self-start text-left text-xl leading-relaxed text-muted">
-            A fast, private image converter that runs entirely in your browser. WebP, AVIF,
-            PNG, JPEG, HEIC, TIFF and more — nothing is ever uploaded.
-          </p>
         </header>
 
         {/* Main grid */}
