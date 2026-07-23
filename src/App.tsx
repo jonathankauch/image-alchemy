@@ -254,8 +254,9 @@ export default function App() {
           </main>
         </div>
 
-        <footer className="mt-20 text-center text-[0.8rem] text-faint">
-          Image Alchemy · client-side conversion via ImageMagick WASM
+        <footer className="mt-20 flex flex-col items-center gap-1 text-center text-[0.8rem] text-faint">
+          <span>Image Alchemy · client-side conversion via ImageMagick WASM</span>
+          <span>© 2026 jonathankauch</span>
         </footer>
       </div>
     </div>
