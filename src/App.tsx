@@ -162,8 +162,9 @@ export default function App() {
   return (
     <div className="apple-bg min-h-full">
       <div className="mx-auto flex max-w-5xl flex-col px-5 py-14 sm:px-8 sm:py-20">
-        {/* Hero */}
-        <header className="rise grid grid-cols-2 items-center gap-x-10 gap-y-8">
+        {/* Hero — shares the main grid's column template so the description
+            lines up with the dropzone below it. */}
+        <header className="rise grid gap-x-6 gap-y-8 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]">
           {/* Left: logo + wordmark, title */}
           <div className="flex flex-col items-start gap-5 text-left">
             <div className="flex items-center gap-3">
@@ -176,7 +177,7 @@ export default function App() {
                 Alchemy
               </p>
             </div>
-            <h1 className="text-5xl font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-6xl">
+            <h1 className="text-5xl font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-6xl lg:whitespace-nowrap">
               Any image.
               <br />
               <span className="text-blue">Any format.</span>
@@ -262,8 +263,8 @@ export default function App() {
         </div>
 
         <footer className="mt-20 flex flex-col items-center gap-1 text-center text-[0.8rem] text-faint">
-          <span>Image Alchemy · client-side conversion via ImageMagick WASM</span>
-          <span>© 2026 Jonathan Kauch — Built with AI</span>
+          <span>Client-side conversion via ImageMagick WASM · Built with AI</span>
+          <span>Image Alchemy™ © 2026 Jonathan Kauch — All rights reserved.</span>
         </footer>
       </div>
     </div>
