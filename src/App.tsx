@@ -164,21 +164,23 @@ export default function App() {
       <div className="mx-auto flex max-w-5xl flex-col px-5 py-14 sm:px-8 sm:py-20">
         {/* Hero */}
         <header className="rise grid grid-cols-2 items-center gap-x-10 gap-y-8">
-          {/* Left: logo, title, privacy pill */}
+          {/* Left: logo + wordmark, title, privacy pill */}
           <div className="flex flex-col items-start gap-5 text-left">
-            <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[22px] bg-gradient-to-b from-[#3a9bff] to-blue text-white shadow-icon">
-              <ArrowRightLeft className="h-8 w-8" strokeWidth={2.25} />
-            </div>
-            <div className="flex flex-col gap-3">
-              <p className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-faint">
-                Image Alchemy
-              </p>
-              <h1 className="text-5xl font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-6xl">
-                Any image.
+            <div className="flex items-center gap-3.5">
+              <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[22px] bg-gradient-to-b from-[#3a9bff] to-blue text-white shadow-icon">
+                <ArrowRightLeft className="h-8 w-8" strokeWidth={2.25} />
+              </div>
+              <p className="font-mono text-sm font-medium uppercase tracking-[0.22em] text-faint">
+                Image
                 <br />
-                <span className="text-blue">Any format.</span>
-              </h1>
+                Alchemy
+              </p>
             </div>
+            <h1 className="text-5xl font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-6xl">
+              Any image.
+              <br />
+              <span className="text-blue">Any format.</span>
+            </h1>
             <div className="inline-flex items-center gap-1.5 rounded-full bg-panel px-3.5 py-1.5 text-[0.8rem] font-medium text-muted">
               <Lock className="h-3.5 w-3.5 text-green" strokeWidth={2.25} />
               100% on-device · nothing leaves your Mac
