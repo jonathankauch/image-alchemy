@@ -188,7 +188,7 @@ export default function App() {
           </div>
 
           {/* Right: description */}
-          <p className="max-w-lg text-left text-xl leading-relaxed text-muted">
+          <p className="max-w-lg self-start text-left text-xl leading-relaxed text-muted">
             A fast, private image converter that runs entirely in your browser. WebP, AVIF,
             PNG, JPEG, HEIC, TIFF and more — nothing is ever uploaded.
           </p>
