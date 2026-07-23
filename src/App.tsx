@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { saveAs } from 'file-saver'
 import JSZip from 'jszip'
-import { ArrowRightLeft, Loader2, Lock, Package, Trash2 } from 'lucide-react'
+import { Loader2, Lock, Package, Trash2 } from 'lucide-react'
 import { Dropzone } from './components/Dropzone'
+import { LogoGlyph } from './components/LogoGlyph'
 import { ConversionPanel, type Settings } from './components/ConversionPanel'
 import { FileList } from './components/FileList'
 import { ALL_FORMATS, convertImage, ensureEngine } from './lib/convert'
@@ -169,7 +170,7 @@ export default function App() {
           <div className="flex flex-col items-start gap-5 text-left">
             <div className="flex items-center gap-3">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-[#3a9bff] to-blue text-white shadow-icon">
-                <ArrowRightLeft className="h-6 w-6" strokeWidth={2.25} />
+                <LogoGlyph className="h-7 w-7" />
               </div>
               <p className="font-mono text-sm font-medium uppercase tracking-[0.22em] text-faint">
                 Image
@@ -192,7 +193,7 @@ export default function App() {
             </p>
             <div className="inline-flex items-center gap-1.5 rounded-full bg-panel px-3.5 py-1.5 text-[0.8rem] font-medium text-muted">
               <Lock className="h-3.5 w-3.5 text-green" strokeWidth={2.25} />
-              100% on-device · nothing leaves your Mac
+              100% on-device · nothing leaves your browser
             </div>
           </div>
         </header>
