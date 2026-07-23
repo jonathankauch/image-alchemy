@@ -163,30 +163,33 @@ export default function App() {
     <div className="apple-bg min-h-full">
       <div className="mx-auto flex max-w-5xl flex-col px-5 py-14 sm:px-8 sm:py-20">
         {/* Hero */}
-        <header className="rise flex flex-col items-center gap-5 text-center">
-          <div
-            className="flex h-[72px] w-[72px] items-center justify-center rounded-[22px] bg-gradient-to-b from-[#3a9bff] to-blue text-white shadow-icon"
-          >
-            <ArrowRightLeft className="h-8 w-8" strokeWidth={2.25} />
+        <header className="rise grid items-center gap-x-12 gap-y-10 md:grid-cols-2">
+          {/* Left: logo, privacy pill, title */}
+          <div className="flex flex-col items-start gap-5 text-left">
+            <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[22px] bg-gradient-to-b from-[#3a9bff] to-blue text-white shadow-icon">
+              <ArrowRightLeft className="h-8 w-8" strokeWidth={2.25} />
+            </div>
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-panel px-3.5 py-1.5 text-[0.8rem] font-medium text-muted">
+              <Lock className="h-3.5 w-3.5 text-green" strokeWidth={2.25} />
+              100% on-device · nothing leaves your Mac
+            </div>
+            <div className="flex flex-col gap-3">
+              <p className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-faint">
+                Image Alchemy
+              </p>
+              <h1 className="text-5xl font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-6xl">
+                Any image.
+                <br />
+                <span className="text-blue">Any format.</span>
+              </h1>
+            </div>
           </div>
-          <div className="flex flex-col gap-3">
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-faint">
-              Image Alchemy
-            </p>
-            <h1 className="text-balance text-5xl font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-6xl">
-              Any image.
-              <br />
-              <span className="text-blue">Any format.</span>
-            </h1>
-            <p className="mx-auto max-w-lg text-balance text-lg leading-relaxed text-muted">
-              A fast, private image converter that runs entirely in your browser. WebP, AVIF,
-              PNG, JPEG, HEIC, TIFF and more — nothing is ever uploaded.
-            </p>
-          </div>
-          <div className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-panel px-3.5 py-1.5 text-[0.8rem] font-medium text-muted">
-            <Lock className="h-3.5 w-3.5 text-green" strokeWidth={2.25} />
-            100% on-device · nothing leaves your Mac
-          </div>
+
+          {/* Right: description */}
+          <p className="max-w-lg text-left text-xl leading-relaxed text-muted">
+            A fast, private image converter that runs entirely in your browser. WebP, AVIF,
+            PNG, JPEG, HEIC, TIFF and more — nothing is ever uploaded.
+          </p>
         </header>
 
         {/* Main grid */}
